@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Programa para cobrar</title>
+    <style>
+        h1 {
+            color: #eefaff;
+        }
+        
+        body {
+            background-color: #ff9f9f;
+        }
+        
+        .botonCalcular {
+            color: rgb(253, 243, 243);
+            background-color: rgb(253, 15, 15);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            padding: 15px;
+        }
+        
+        div {
+            color: #ffffff;
+            font-size: large;
+        }
+        
+        input {
+            border-radius: 11px;
+        }
+    </style>
+
+    <script>
+        function calcularDescuento() {
+            var valorCobrarSinDescuento = document.getElementById("valorCobrarSinDescuento").value;
+            var porcentajeDelDescuento = document.getElementById("porcentajeDelDescuento").value;
+            var porcentajeDelDescuentoEnPorciento = parseFloat(porcentajeDelDescuento) / 100;
+
+
+            var valorCobrarMasElDescuento = (parseFloat(valorCobrarSinDescuento) * porcentajeDelDescuentoEnPorciento) + parseFloat(valorCobrarSinDescuento);
+            var valorCobrarFinal = (parseFloat(valorCobrarMasElDescuento) * parseFloat(porcentajeDelDescuentoEnPorciento)) + parseFloat(valorCobrarSinDescuento);
+
+            if (valorCobrarSinDescuento.length == 0 || porcentajeDelDescuento.length == 0) {
+                alert("Ingresa todos los campos");
+            } else {
+                document.getElementById('resultado').innerHTML = valorCobrarFinal;
+            }
+
+
+
+        }
+    </script>
+
+
+</head <body>
+
+<center>
+    <h1>Cobrar</h1>
+</center>
+
+<p>
+    <i>
+    1. Ingrese el "valor a cobrar sin descuento" sin signos de puntuación.
+  </i>
+
+</p>
+<h2>Valor a cobrar sin descuento <input type="number" required id="valorCobrarSinDescuento" /></h2>
+<p>
+    <i>
+    2. El 3,5 es un valor por defecto, puedes borrarlo y escribir otro si lo necesitas. (Debes usar (,) si no es un
+    numéro entero.)
+  </i>
+</p>
+
+
+<h2>% del descuento <input type="number" required id="porcentajeDelDescuento" value="3.5" /></h2>
+
+<input class="botonCalcular" type="button" value="Calcular" onclick="calcularDescuento()">
+
+<h2>Valor a cobrar final</h2>
+<div id="resultado"></div>
+
+
+</body>
+
+</html>
