@@ -43,7 +43,7 @@
             if (valorCobrarSinDescuento.length == 0 || porcentajeDelDescuento.length == 0) {
                 alert("Ingresa todos los campos");
             } else {
-                document.getElementById('resultado').innerHTML = valorCobrarFinal;
+                document.getElementById('resultado').innerHTML = Intl.NumberFormat().format(valorCobrarFinal);
             }
 
 
